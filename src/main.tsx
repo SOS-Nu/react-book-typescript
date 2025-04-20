@@ -10,6 +10,7 @@ import AboutPage from 'pages/client/about';
 import LoginPage from 'pages/client/auth/login';
 import RegisterPage from 'pages/client/auth/register';
 import 'styles/global.scss'
+import { App } from 'antd';
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* <Layout /> */}
+    <App>
     <RouterProvider router={router} />
+    </App>
   </StrictMode>,
 )
