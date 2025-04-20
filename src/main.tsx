@@ -16,6 +16,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
+      { index: true, element: <BookPage /> },
+      
       {
         path: "/book",
         element: <BookPage />,
