@@ -15,7 +15,7 @@ declare global {
             pages: number;
             total: number;
         },
-        results: T[]
+        result: T[]
     }
 
     interface ILogin {
@@ -29,14 +29,13 @@ declare global {
             id: string;
         }
     }
-    
+
     interface IRegister {
         _id: string;
         email: string;
         fullName: string;
     }
 
-    
     interface IUser {
         email: string;
         phone: string;
@@ -45,9 +44,21 @@ declare global {
         avatar: string;
         id: string;
     }
-    
+
     interface IFetchAccount {
         user: IUser
+    }
+
+    interface IUserTable {
+        _id: string;
+        fullName: string;
+        email: string;
+        phone: string;
+        role: string;
+        avatar: string;
+        isActive: boolean;
+        createdAt: Date;
+        updatedAt: Date;
     }
 
 }
