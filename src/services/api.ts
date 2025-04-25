@@ -33,11 +33,21 @@ export const getUsersAPI = (query: string) => {
     return axios.get<IBackendRes<IModelPaginate<IUserTable>>>(urlBackend)
 }
 
-
-
 export const createUserAPI = (fullName: string, email: string,
     password: string, phone: string) => {
     const urlBackend = "/api/v1/user";
     return axios.post<IBackendRes<IRegister>>(urlBackend,
         { fullName, email, password, phone })
 }
+
+export const bulkCreateUserAPI = (hoidanit: {
+    fullName: string;
+    password: string;
+    email: string;
+    phone: string;
+}[]) => {
+    const urlBackend = "/api/v1/user/bulk-create";
+    return axios.post<IBackendRes<IResponseImport>>(urlBackend, hoidanit)
+}
+
+
