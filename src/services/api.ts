@@ -34,3 +34,10 @@ export const getUsersAPI = (query: string) => {
 }
 
 
+
+export const createUserAPI = (fullName: string, email: string,
+    password: string, phone: string) => {
+    const urlBackend = "/api/v1/user";
+    return axios.post<IBackendRes<IRegister>>(urlBackend,
+        { fullName, email, password, phone })
+}
