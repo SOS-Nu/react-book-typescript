@@ -108,4 +108,7 @@ declare global {
 
   
   
+    interface IOrderTable extends IHistory {
+
+    }
 }
