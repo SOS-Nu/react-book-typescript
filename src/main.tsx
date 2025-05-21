@@ -31,6 +31,14 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
+        path: "vnpay/return-url",
+        element: (
+          <ProtectedRoute>
+            <div>sosnu url</div>
+          </ProtectedRoute>
+        )
+      },
+      {
         index: true,
         element: <HomePage />
       },
@@ -104,6 +112,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+      
 
     ]
   },
