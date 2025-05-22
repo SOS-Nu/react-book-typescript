@@ -1,15 +1,13 @@
-import CreateInstanceAxios from 'services/axios.customize';
+import createInstanceAxios from 'services/axios.customize';
 
+const axios = createInstanceAxios(import.meta.env.VITE_BACKEND_URL);
 
-const axios = CreateInstanceAxios(import.meta.env.VITE_BACKEND_URL)
-
-const axiosPayment = CreateInstanceAxios(import.meta.env.VITE_BACKEND_PAYMENT_URL)
-
-
+const axiosPayment = createInstanceAxios(import.meta.env.VITE_BACKEND_PAYMENT_URL);
 
 export const getVNPayUrlAPI = (amount: number, locale: string, paymentRef: string) => {
     const urlBackend = "/vnpay/payment-url";
-    return axiosPayment.post<IBackendRes<{url : string}>>(urlBackend, {amount, locale, paymentRef})
+    return axiosPayment.post<IBackendRes<{ url: string }>>(urlBackend,
+        { amount, locale, paymentRef })
 }
 
 export const updatePaymentOrderAPI = (paymentStatus: string, paymentRef: string) => {
@@ -28,7 +26,7 @@ export const loginAPI = (username: string, password: string) => {
     const urlBackend = "/api/v1/auth/login";
     return axios.post<IBackendRes<ILogin>>(urlBackend, { username, password }, {
         headers: {
-            delay: 3000
+            delay: 1000
         }
     })
 }
@@ -175,7 +173,6 @@ export const getHistoryAPI = () => {
     return axios.get<IBackendRes<IHistory[]>>(urlBackend)
 }
 
-
 export const updateUserInfoAPI = (
     _id: string, avatar: string,
     fullName: string, phone: string) => {
@@ -190,7 +187,7 @@ export const updateUserPasswordAPI = (
     return axios.post<IBackendRes<IRegister>>(urlBackend,
         { email, oldpass, newpass })
 }
-//
+
 export const getOrdersAPI = (query: string) => {
     const urlBackend = `/api/v1/order?${query}`;
     return axios.get<IBackendRes<IModelPaginate<IOrderTable>>>(urlBackend)
@@ -205,7 +202,3 @@ export const getDashboardAPI = () => {
     }>>(urlBackend)
 }
 
-
-    interface IOrderTable extends IHistory {
-
-    }
