@@ -24,6 +24,7 @@ import HistoryPage from 'pages/client/history';
 
 import enUS from 'antd/locale/en_US';
 import viVN from 'antd/locale/vi_VN';
+import ReturnURLPage from './components/client/order/return.url';
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
         path: "vnpay/return-url",
         element: (
           <ProtectedRoute>
-            <div>sosnu url</div>
+            <ReturnURLPage/>
           </ProtectedRoute>
         )
       },
