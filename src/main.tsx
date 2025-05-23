@@ -24,6 +24,8 @@ import HistoryPage from 'pages/client/history';
 
 import enUS from 'antd/locale/en_US';
 import viVN from 'antd/locale/vi_VN';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+
 import ReturnURLPage from './components/client/order/return.url';
 
 const router = createBrowserRouter([
@@ -132,9 +134,11 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App>
       <AppProvider>
+        <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
         <ConfigProvider locale={enUS}>
           <RouterProvider router={router} />
-        </ConfigProvider>
+          </ConfigProvider>
+          </GoogleOAuthProvider>
       </AppProvider>
     </App>
   </StrictMode>,
