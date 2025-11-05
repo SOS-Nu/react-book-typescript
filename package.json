@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "author": {
-    "name": "Hỏi Dân IT vs Eric",
-    "url": "https://hoidanit.vn"
+    "name": "Lê Văn Nguyên vs SOS Nu",
+    "url": "https://sosnu.vn"
   },
   "scripts": {
     "dev": "vite",
